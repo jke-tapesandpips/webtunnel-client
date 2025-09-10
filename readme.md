@@ -29,17 +29,19 @@ The input file needs to look like [the example input file](automated/example-inp
 ```
 cd automated
 docker build . -t <your-tag>
-docker run --rm -it <your-tag> test-webtunnel-client.sh example-input-file.txt
+docker run --rm -it -v ${PWD}/automated/example-input-file.txt:/app/example-input-file.txt <your-tag> test-webtunnel-connections.sh /app/example-input-file.txt
 ```
 Or you can use the prebuilt image:
 ```
-docker run --rm -it bubatzlegal/webtunnel-client:automated-latest test-webtunnel-client.sh example-input-file.txt
+docker run --rm -it -v ./automated/example-input-file.txt:/app/example-input-file.txt bubatzlegal/webtunnel-client:automated-latest test-webtunnel-connections.sh /app/example-input-file.txt
+docker run --rm -it -v ./connection-strings.txt:/app/connection-strings.txt bubatzlegal/webtunnel-client:automated-latest test-webtunnel-connections.sh /app/connection-strings.txt
 ```
 
 Example Output:
 ```
-✅ Tor connection is true for bridge-1
-❌ Tor connection is false for bridge-2
-✅ Tor connection is true for bridge-3
-✅ Tor connection is true for bridge-4
+✅ Tor connection is true for bridge-1 # Check Tor API-Response: {"IsTor":true,"IP":"..."}
+❌ Tor connection is false for bridge-2 # Check Tor API-Response: {"IsTor":false,"IP":"..."}
+curl: (7) Failed to connect to localhost port 1080 after 0 ms: Could not connect to server
+❌ Tor connection is  for bridge-3 # curl --socks ... cant connect to the Tor proxy
+...
 ```
