@@ -1,5 +1,5 @@
 # Tor Webtunnel Client
-A docker container to test your webtunnel "bridges"
+A docker container to test your [Tor WebTunnel Bridge](https://community.torproject.org/relay/setup/webtunnel/)
 
 ## Manual Testing
 
