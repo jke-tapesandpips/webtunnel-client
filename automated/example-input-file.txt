@@ -1,0 +1,4 @@
+webtunnel 10.0.0.161:443 SOMEFINGERPRINT1 url=https://domain.4.net/path1 ver=0.0.1 #bridge-1
+webtunnel 10.0.0.161:443 SOMEFINGERPRINT2 url=https://domain.3.tld/path2 ver=0.0.1 #bridge-2
+webtunnel 10.0.0.161:443 SOMEFINGERPRINT3 url=https://domain.2.org/path3 ver=0.0.1 #bridge-3
+webtunnel 10.0.0.161:443 SOMEFINGERPRINT4 url=https://domain.1.com/path4 ver=0.0.1 #bridge-4
